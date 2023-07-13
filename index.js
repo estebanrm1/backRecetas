@@ -4,6 +4,7 @@ import morgan from "morgan";
 import path from 'path'
 import 'dotenv/config'
 import './src/database/dbConnection'
+import recetasRouter from './src/routes/recetas.routes'
 
 //usar un puerto
 const app = express();
@@ -20,3 +21,4 @@ app.use(morgan('dev')) //muestra en consola info extra de las solicitudes
 app.use(express.static(path.join(__dirname, '/public')))
 
 //rutas
+app.use('/apirecetas', recetasRouter)
